@@ -1,0 +1,243 @@
+/* Diseño Premium Minimalista */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --accent-color: #007aff;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    /* Espacio para el nav inferior */
+}
+
+.glass-header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem;
+    text-align: center;
+    z-index: 100;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+#view-container {
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Navegación inferior estilo iOS */
+.bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8rem;
+    box-shadow: var(--card-shadow);
+    z-index: 1000;
+}
+
+.nav-item {
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.nav-item:active {
+    transform: scale(0.9);
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.view {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Estilos de Formulario */
+.create-post-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #eee;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-family: inherit;
+    resize: none;
+    margin: 1rem 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilos del Feed */
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.post-card {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--glass-border);
+    transition: transform 0.2s ease;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.author-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.post-content {
+    font-size: 1.05rem;
+    color: #333;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.post-footer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.like-btn {
+    background: none;
+    color: #666;
+    padding: 5px 12px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #eee;
+}
+
+.like-btn.liked {
+    color: #ff3b30;
+    border-color: #ff3b3022;
+    background: #ff3b3008;
+}
+
+.delete-btn {
+    background: none;
+    padding: 5px;
+    font-size: 1rem;
+    opacity: 0.3;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+}
+
+.post-time {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.loader,
+.empty-msg,
+.error-msg {
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+}
+
+#form-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
